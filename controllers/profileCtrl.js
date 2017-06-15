@@ -1,6 +1,4 @@
-var profiles =
-[
-  {
+var profiles = [{
     name: 'Preston McNeil',
     pic: 'https://s3.amazonaws.com/uifaces/faces/twitter/ashleyford/128.jpg',
     status: 'Everything is bigger in Texas'
@@ -21,3 +19,7 @@ var profiles =
     status: 'OMG MITTENS DID THE CUTEST THING TODAY'
   }
 ];
+
+module.exports = {
+
+}
