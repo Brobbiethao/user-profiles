@@ -22,19 +22,19 @@ const profiles = [{
 
 module.exports = {
   getFriendsProperties: function(req, res, next) {
-    const currentUser = req.session.currentUser;
-    const friendsarr = currentUser.friends;
+    const user = req.session.currentUser;
+    const friendsarr = user.friends;
     const friends = [];
     for(var i = 0; i < friends.length; i++) {
-      for(varj = 0; j < profiles.length; i++) {
-        if(friends[i] === profiles[i].name) {
+      for(var j = 0; j < profiles.length; j++) {
+        if(friends[i].name === profiles[j].name) {
           friends.push(profiles[i].name)
         }
       }
     }
     res.send({
-      currentUser: currentUser;
-      friends: friends;
+      currentUser: user,
+      friends: friends,
     })
   }
 }

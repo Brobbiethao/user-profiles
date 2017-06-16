@@ -1,8 +1,9 @@
 angular.module('userProfiles')
 .controller('profileCtrl', function( $scope, friendService ) {
-	var promise = friendService.getFriends();
-	promise.then(function(response){
-		$scope.currentUser = response.data.currentUser;
-		$scope.friends = response.data.friends;
-	});
+	const promise = friendService.getFriends(); // courtesy of R-yan!
+		promise.then(function(res) {
+			$scope.currentUser = res.data.currentUser;
+			$scope.friends = res.data.friends;
+		})
+
 });

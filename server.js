@@ -2,14 +2,14 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var session = require('express-session')
 var cors = require('cors')
-var config = require('./config.js')
+var config = require('./config')
 var userCtrl = require('./controllers/userCtrl.js')
-var profileCtrl = require('./controllers/userCtrl.js')
+var profileCtrl = require('./controllers/profileCtrl.js')
 
 var app = express();
 
 var corsOptions = {
-  origin: 'http://localhost:8999'
+  origin: 'http://localhost:3000'
 }
 
 
@@ -21,10 +21,7 @@ app.use(session({
 }))
 
 app.post('/api/login', userCtrl.login);
-// app.get('/api/profiles', profileCtrl.getFriendsProfiles);
-
-
-
+app.get('/api/profiles', profileCtrl.getFriendsProperties);
 
 app.listen(3000, function() {
   console.log('Hey, Listen!')
