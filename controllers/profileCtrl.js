@@ -1,4 +1,4 @@
-var profiles = [{
+const profiles = [{
     name: 'Preston McNeil',
     pic: 'https://s3.amazonaws.com/uifaces/faces/twitter/ashleyford/128.jpg',
     status: 'Everything is bigger in Texas'
@@ -21,5 +21,20 @@ var profiles = [{
 ];
 
 module.exports = {
-
+  getFriendsProperties: function(req, res, next) {
+    const currentUser = req.session.currentUser;
+    const friendsarr = currentUser.friends;
+    const friends = [];
+    for(var i = 0; i < friends.length; i++) {
+      for(varj = 0; j < profiles.length; i++) {
+        if(friends[i] === profiles[i].name) {
+          friends.push(profiles[i].name)
+        }
+      }
+    }
+    res.send({
+      currentUser: currentUser;
+      friends: friends;
+    })
+  }
 }

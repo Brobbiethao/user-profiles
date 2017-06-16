@@ -129,7 +129,7 @@ We'll start in `userCtrl.js`. First create your module.exports object. The data 
 
 * Create a method on our exports object named `login`, this method should loop through the users array, find the user that matches `req.body.name` and confirm
   that the `req.body.password` matches the user's password. (If you use .filter instead, be aware that it will always return an array, so you'll need to grab what is in index 0.)
-* If we find a match we need to set `req.session.currentUser` equal to to the correct user object and `res.send({ userFound: true });`.
+* If we find a match, we need to set `req.session.currentUser` equal to to the correct (user object) and `res.send({ userFound: true });`.
 * If we don't find the user, we will need to `res.send({ userFound: false });`.
 * This function will need an endpoint, let's create a 'POST' endpoint on the path `'/api/login'` and have it call our newly created login method.
 
@@ -144,7 +144,7 @@ On to `profileCtrl.js`. Again, create your module.exports object.
 
 Let's create a method called `getFriendsProfiles`. Your current user has a friends array which contains a list of names. For each friend in this array, you will need to find the corresponding profile object in the profiles array. Push these matching profile objects to a new array.  
 
-(Hint: You'll need to loop over the currentUser's friends, and for each friend, you will need to loop over the profiles array.) 
+(Hint: You'll need to loop over the currentUser's friends, and for each friend, you will need to loop over the profiles array.)
 
 Then `res.send` an object back containing our new array and the current user. The response object should be structured something like this:
 
